@@ -1,0 +1,44 @@
+
+.testi-text h4,h5,h2{
+    color: #5d3ab7;
+}
+.carousel-control-next-icon {
+background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQMjQcBZ8iFPxM4PZtdfANn-rdORZH22eTIkf6OB94WD5O2lOttQV_16SCSqmuxeAA3cU4&usqp=CAU");
+
+}
+.carousel-control-prev-icon{
+background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS4K0J8Kw1CXQsFHBXuFnqKulmiEXh3E3WbHbAhpI3DJaaDsznhDLn1Ed-tZxlYF7HvnCI&usqp=CAU");
+}
+.carousel-indicators .active{
+    background-color: #5d3ab7;
+}
+
+.testi{
+    display: flex;
+    padding: 10px;
+    vertical-align: middle;
+}
+.testi img{
+    width:500px;
+    height: 400px;
+    margin-right: 20px;
+}
+.testi-text{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+@media (min-width:320px) and (max-width:1024px){
+ .testi{
+        display:flex;
+        flex-direction: column;
+        padding: 10px;
+    }
+    .testi img{
+        width:100%;
+        height: 300px;
+        margin:10px;
+       align-self: center;
+    }
+}
