@@ -14,15 +14,15 @@
   .Form h1{
     text-align: left;
   }
-  #fname,#lname,
-  #email_add, #company,#phone_no{
+  #demo_FirstName,#demo_LastName,
+  #demo_email, #demo_company,#demo_phone{
     height: 40px;
     font-size: 16px;
     width:100%;
     margin: 20px;
     border-radius: 5px;
   }
-  #drop_down
+  #s1
   {
     align-self: center;
     background: #c4c4c4bd;
