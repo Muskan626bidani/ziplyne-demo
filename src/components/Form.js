@@ -103,11 +103,26 @@ function validateForm(docdata) {
     setInfo(docdata);
   }
 }
-function deletedata()
+
+
+//save to database
+async function setInfo(docdata) {
+  document.getElementById('demo_button').disabled = true
+  document.getElementById('demo_button').style.backgroundColor = 'gray'
+  // var timestamp = String(new Date().getTime());
+  await setDoc(doc(db, "demo-form", docdata.timestamp), docdata);
+  alert("Congratulations! Your information saved successfully.");
+  deletedata();
+  alert("hi");
+  document.getElementById('demo_button').disabled = false
+  document.getElementById('demo_button').style.backgroundColor = '#E9910DFC'
+  // document.getElementById('form-back').click();
+  Window.location.reload();
+}
+function deletedata(docdata)
 {var FirstName = document.getElementById("demo_Firstname");
 var LastName = document.getElementById("demo_LastName");
 var company = document.getElementById("demo_company");
-
 var phone = document.getElementById("demo_phone");
 var email = document.getElementById("demo_email");
 var s1 = document.getElementById("s1");
@@ -118,21 +133,6 @@ var s1 = document.getElementById("s1");
   email.value=null;
   s1.value="--Select any One--";
 }
-
-//save to database
-async function setInfo(docdata) {
-  document.getElementById('demo_button').disabled = true
-  document.getElementById('demo_button').style.backgroundColor = 'gray'
-  // var timestamp = String(new Date().getTime());
-  await setDoc(doc(db, "demo-form", docdata.timestamp), docdata);
-  alert("Congratulations! Your information saved successfully.");
-  deletedata();
-  // document.getElementById('demo_button').disabled = false
-  // document.getElementById('demo_button').style.backgroundColor = '#E9910DFC'
-  // document.getElementById('form-back').click();
-  Window.location.reload();
-}
-
 {/* const Text = () => <div className="submit-text">Thank you for requesting a Demo and providing us with some more context about you.
 
 
