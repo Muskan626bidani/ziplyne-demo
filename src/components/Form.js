@@ -55,9 +55,11 @@ Which Information are you seeking?
 function submit() {
   var FirstName = document.getElementById("demo_FirstName");
   var LastName = document.getElementById("demo_LastName");
-  var company = document.getElementById("demo_company");
-  var phone = document.getElementById("demo_phone");
   var email = document.getElementById("demo_email");
+  var phone = document.getElementById("demo_phone");
+  var company = document.getElementById("demo_company");
+ 
+ 
   var s1 = document.getElementById("s1");
   
   
@@ -65,9 +67,11 @@ function submit() {
   const docdata = {
     FirstName: FirstName.value,
     LastName: LastName.value,
-    company: company.value,
-    phone: phone.value,
     email: email.value,
+    phone: phone.value,
+    company: company.value,
+    
+
     s1: s1.value,
  timestamp:timestamp,
   };
@@ -80,9 +84,9 @@ function validateForm(docdata) {
   if (
     docdata.FirstName == "" ||
     docdata.LastName == "" ||
-    docdata.company == "" ||
-    docdata.phone == "" ||
     docdata.email == "" ||
+    docdata.phone == "" ||
+    docdata.company == "" ||
     docdata.s1 == "" 
    )
     {

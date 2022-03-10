@@ -12,14 +12,16 @@ function App() {
     <div className="App">
       <Navbar/>
     <div className='Main_div'>
-<Guideline/>
-
-         
+<Guideline/>        
+ 
  <Form/></div>
  <Testimonials/>
+ <Demo_response/>
+    </div>
+    {/* <Router><Route path="/admin" exact component={() => <Demo_response/>}/></Router> */}
 
- <Route path="/admin" exact component={() => <Demo_response/>}/>
-    </div></>
+    </>
+    
   );
 }
 

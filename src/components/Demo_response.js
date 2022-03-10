@@ -26,7 +26,7 @@ export default function Demo_response() {
   
 async function getInfo() {
     
-    const demo_data = collection(db, "demo-page");
+    const demo_data = collection(db, "demo-form");
     var demo_doc = await getDocs(demo_data);
     detailList = demo_doc.docs.map((doc) => doc.data());
     detailListId = demo_doc.docs.map((doc) => doc.id);
@@ -35,10 +35,9 @@ async function getInfo() {
       cvsFileData = [
         [doc.data().FirstName],
         [doc.data().LastName],
-        [doc.data().company],
-        [doc.data().semester],
-        [doc.data().phone],
         [doc.data().email],
+        [doc.data().phone],
+        [doc.data().company],
         [doc.data().s1],
       ];
 
@@ -59,6 +58,7 @@ async function getInfo() {
     setTester(false);
   }
 function downloadCsv() {
+  // alert(CsvDetail.length);
     if (CsvDetail.length == 0) {
       alert("There are no responses yet!");
       return;
@@ -66,7 +66,7 @@ function downloadCsv() {
 
     //define the heading for each row of the data
     var csv =
-      "FirstName,LastName,company,Semester,PhoneNo,EmailId,Which Information are you seeking?*";
+      "FirstName,LastName,company,PhoneNo,EmailId,Which Information are you seeking?*";
     csv += "\n";
 
     //merge the data with CSV
@@ -89,9 +89,10 @@ function downloadCsv() {
     hiddenElement.download = "demo_response.csv";
     hiddenElement.click();
   }
- return <div className="response">
+ return (
 <>
-
+<div className="response">
+<h1>Responses</h1>
 
 <a className="downloadCsv">
               <i
@@ -100,7 +101,7 @@ function downloadCsv() {
                 aria-hidden="true"
               ></i>
             </a>
-</>
+            <br/>
 
-  </div>;
+  </div></>);
 }
