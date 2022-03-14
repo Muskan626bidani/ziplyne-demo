@@ -1,16 +1,20 @@
 import React, { useState } from "react";
 import './Form.css';
 import db from '../Firebase.js'
+import 'react-phone-number-input/style.css'
+import { isValidPhoneNumber } from 'react-phone-number-input'
+import PhoneInput from 'react-phone-number-input'
 import { collection, getDocs, Timestamp, doc, setDoc } from 'firebase/firestore'
 
 export default function Form() {
   const [showText, setShowText] = useState(false);
   const onClick = () => setShowText(true);
-  
+  const [value, setValue] = useState();
+//   isValidPhoneNumber('+12223333333') === false
+// isValidPhoneNumber('+12133734253') === true
   return( 
     
     <>
-  {/* <div></div> */}
   <div className='Form'>
 
       <h1>Get a Ziplyne Demo</h1>
@@ -19,7 +23,18 @@ export default function Form() {
 <input placeholder="Last Name" id= "demo_LastName"/>
 
 <input placeholder="Email Address" type="email" id= "demo_email"/>
-<input placeholder="Phone" type= "phone" id="demo_phone"/> 
+{/* <input placeholder="Phone" type= "phone" id="demo_phone"/>  */}
+
+   {/* `value` will be the parsed phone number in E.164 format.
+   Example: "+12133734253". */}
+  
+    <PhoneInput
+      placeholder="Phone Number"
+      value={value}
+      onChange={setValue} 
+      id="demo_phone"
+      error={value ? (isValidPhoneNumber(value) ? undefined : 'Invalid phone number') : 'Phone number required'}
+      />
 <input placeholder="Company" id="demo_company"/> 
 <div className="dropdown">
 Which Information are you seeking?
